@@ -1,70 +1,114 @@
-# Getting Started with Create React App
+# Online-Judge
+> #### An Online-judge system based on Node and React (MERN Stack). 
+## Features
+- [x] Authentication and Authorization
+- [x] Submit your code
+- [x] Test your code
+- [x] Results shows Time (Sec) and Memory (MB)
+- [x] Verdicts
+    * Time Limit Exceeded (TLE)  ![](https://www.codechef.com/misc/clock_error.png)
+    * Memory Limit Exceeded (MLE)  ![](https://www.codechef.com/misc/runtime-error.png)
+    * Compilation Error (CE)  ![](https://s3.amazonaws.com/codechef_shared/misc/alert-icon.gif)
+    * Runtime Error (RTE)  ![](https://www.codechef.com/misc/runtime-error.png)
+    * Wrong Answer (WA)  ![](https://www.codechef.com/misc/cross-icon.gif)
+    * Accepted (AC)  ![](https://www.codechef.com/misc/tick-icon.gif)
+- [x] See your submissions
+- [x] Filter problems based on tags
+- [x] Search problems by name
+- [x] Dashboard for Statistics
+- [x] Create Coding Problems
+- [ ] E-mail verification
+- [ ] Forgot password
+- [ ] Leaderboard
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Supported Languages
+* C
+* C++ 11/14/17 (GCC)
+* Java 8
+* Python 3
 
-## Available Scripts
+## Prerequisite
++ Docker Desktop
++ Node.js
 
-In the project directory, you can run:
+## Env Variables
 
-### `npm start`
+> #### In judge/config/config.js:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+```
+PORT = 5000
+JWT_PRIVATE_KEY = <Your_JWT_Token>
+BACK_SERVER_URL = <Spring_Server_URL>
+```
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Setup Locally
+### Make sure to install docker in your machine.
 
-### `npm test`
+> #### Start Docker Desktop
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```bash
+git clone https://github.com/meetpatel0963/Online-judge.git
+cd online-judge
+```
+### Client
+> #### In client/src/config/config.js:
+#### Change BACK_SERVER_URL="http://localhost:<spring_server_port>" 
+#### Change JUDGE_URL="http://localhost:<judge_server_port>"
 
-### `npm run build`
+```bash
+cd client
+npm install
+npm start
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Server
+> #### Start Spring Boot Server
+#### Change PATH_INIT={{Path to Server Directory}} in judge/judge.js
+```bash
+cd judge
+mkdir submissions
+npm install
+cd docker
+docker build -t <Image_Name> .
+cd ..
+npm start
+```
+### Make sure to start Docker Desktop before the command npm start. 
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+🎉 And that's it! You will now be able to visit <a href="http://localhost:3000/">http://localhost:3000/</a> URL and see your application up and running.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Snapshots
+### SignIn
+![SignIn](./images/signin.png)
+### SignUp
+![SignUp](./images/signup.png)
+### ProblemSet
+![Problem](./images/problemset.png)
+### Problem Page
+![Problem](./images/problem1.png)
+![Problem](./images/problem2.png)
+### Code Editor
+![Problem](./images/codeeditor.png)
+### Results
+![Results](./images/results.png)
+### Add Problem Page
+![AddProblem](./images/addproblem1.PNG)
+![AddProblem](./images/addproblem2.PNG)
+### User Submissions
+![My Submission](./images/usersubmission.png)
+### User Submission Modal
+![Modal](./images/modal.png)
+### Dashboard Charts
+![Dashboard](./images/dashboard1.png)
+### Dashboard Charts
+![Dashboard](./images/dashboard2.png)
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Thanks
++ I'd appreciate a star if you find this helpful.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## License
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+[MIT](http://opensource.org/licenses/MIT)
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
