@@ -1,5 +1,5 @@
 # Online-Judge
-> #### An Online-judge system based on Node and React (MERN Stack). 
+> #### An Online-judge system based on Spring Boot and React.
 ## Features
 - [x] Authentication and Authorization
 - [x] Submit your code
@@ -29,8 +29,7 @@
 
 ## Prerequisite
 + Docker Desktop
-+ Node.js
-
+  
 ## Env Variables
 
 > #### In judge/config/config.js:
