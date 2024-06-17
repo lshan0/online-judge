@@ -45,9 +45,6 @@ BACK_SERVER_URL = <Spring_Server_URL>
 
 > #### Start Docker Desktop
 
-```bash
-git clone https://github.com/meetpatel0963/Online-judge.git
-cd online-judge
 ```
 ### Client
 > #### In client/src/config/config.js:
