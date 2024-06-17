@@ -1,25 +1,41 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch,
+  Redirect,
+} from "react-router-dom";
+import ProblemSet from "./components/problemset/ProblemSet";
+import Problem from "./components/problem/Problem";
+import AddProblem from "./components/problem/addproblem/AddProblem";
+import NavBar from "./components/navbar/NavBar";
+import SignIn from "./components/signIn/SignIn";
+import SignUp from "./components/signUp/SignUp";
+import UserSubmission from "./components/userSubmission/UserSubmission";
+import Dashboard from "./components/dashboard/Dashboard";
+import NoContent from "./components/userSubmission/noContent/NoContent";
 
-function App() {
+import "./App.css";
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div style={{ backgroundColor: "#282c34", height: "100%" }}>
+      <Router>
+        <NavBar />
+        <Switch>
+          <Route exact path="/problemset" component={ProblemSet} />
+          <Route exact path="/problem/:id" component={Problem} />
+          <Route exact path="/addproblem" component={AddProblem} />
+          <Route exact path="/usersubmission" component={UserSubmission} />
+          <Route exact path="/nocontent" component={NoContent} />
+          <Route exact path="/dashboard" component={Dashboard} />
+          <Route exact path="/signin" component={SignIn} />
+          <Route exact path="/signup" component={SignUp} />
+          <Redirect from="/" exact to="/problemset" />
+        </Switch>
+      </Router>
     </div>
   );
-}
+};
 
 export default App;
