@@ -6,7 +6,7 @@ const { default: PQueue } = require("p-queue");
 const queue = new PQueue({ concurrency: 1 });
 
 let PATH_INIT = path.join(
-  "C:/Users/meetp/OneDrive/Desktop/projects/Online-judge/judge",
+  "/Users/ishansharma/Desktop/online-judge/judge",
   "/submissions/"
 );
 
